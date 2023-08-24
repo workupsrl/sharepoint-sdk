@@ -104,9 +104,9 @@ class FolderService
      * @return array
      * @throws Exception
      */
-    public function requestFolderItems(?string $folder = '/', ?string $itemId = null, ?string $suffix = '/children'): array
+    public function requestFolderItems(?string $folder = '/', ?string $itemId = null): array
     {
-        $url = $this->getFolderBaseUrl($folder, $itemId, $suffix);
+        $url = $this->getFolderBaseUrl($folder, $itemId, '/children?$top=2000');
 
         $exists = $this->checkFolderExists($folder, $itemId);
         if ( ! $exists ) {
